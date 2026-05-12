@@ -41,3 +41,24 @@
 - [x] Context methods: close(), release_conn(), drain_conn()
 - [x] io.IOBase compatibility: readable(), readinto(), fileno()
 - [x] Line iteration via __iter__
+
+## Task 11: Pool Manager
+
+### Acceptance Criteria
+- [x] PoolManager maintains LRU cache of connection pools keyed by (scheme, host, port)
+- [x] Same URL reuses same pool
+- [x] Different hosts/schemes/ports get different pools
+- [x] LRU eviction when num_pools exceeded
+- [x] connection_from_url() creates pool from URL
+- [x] connection_from_host() creates pool from host/port/scheme
+- [x] clear() empties pool cache
+- [x] Context manager support
+- [x] SSL keywords stripped for HTTP pools
+- [x] SSL keywords preserved for HTTPS pools
+- [x] Pool kwargs forwarded to pools
+- [x] ProxyManager routes HTTP through proxy
+- [x] ProxyManager creates direct pools for HTTPS
+- [x] ProxyManager sets proxy headers
+- [x] proxy_from_url() factory function
+- [x] Unknown scheme raises URLSchemeUnknown
+- [x] No host raises LocationValueError
