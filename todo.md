@@ -9,8 +9,8 @@ Build the HTTP client library top-down, starting with the most important user-fa
 - [x] Task 3: Implement retry logic that tracks retry counts per error type (connect, read, redirect, status), supports exponential backoff with configurable factor, maintains request history, and raises when retries are exhausted.
 - [x] Task 4: Implement a case-insensitive HTTP header dictionary and an LRU container. (Combined with Task 5)
 - [x] Task 5: (Merged into Task 4)
-- [>] Task 6: Implement multipart form-data encoding that takes form fields (strings, files with filenames and content types) and produces a properly formatted multipart body with boundary, content-disposition headers, and MIME type guessing.
-- [ ] Task 7: Implement request header utilities including a make_headers function that generates common HTTP headers (keep-alive, accept-encoding, user-agent, basic auth, proxy auth, cache control), and body chunking for file-like objects and iterables.
+- [x] Task 6: Implement multipart form-data encoding that takes form fields (strings, files with filenames and content types) and produces a properly formatted multipart body with boundary, content-disposition headers, and MIME type guessing.
+- [>] Task 7: Implement request header utilities including a make_headers function that generates common HTTP headers (keep-alive, accept-encoding, user-agent, basic auth, proxy auth, cache control), and body chunking for file-like objects and iterables.
 - [ ] Task 8: Implement HTTP/HTTPS connection classes that wrap Python's http.client with configurable socket options, timeout handling, proxy tunneling via CONNECT, and SSL/TLS with certificate verification, hostname checking, and fingerprint assertion.
 - [ ] Task 9: Implement connection pooling that manages a LIFO queue of reusable connections per host, with configurable pool size, blocking/non-blocking get, connection health checks, and automatic connection creation.
 - [ ] Task 10: Implement an HTTP response class that wraps raw responses, supports streaming reads, automatic content decompression (gzip, deflate, brotli, zstd), JSON parsing, content-length enforcement, and chunked transfer decoding.

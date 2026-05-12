@@ -1,20 +1,22 @@
 # Acceptance Criteria
 
-## Tasks 1-5 (completed)
+## Tasks 1-6 (completed)
 
-## Task 6: Multipart Form-Data Encoding
+## Task 7: Request Header Utilities and Request Methods Mixin
 
 ### Acceptance Criteria
-- [ ] encode_multipart_formdata({"key": "value"}) returns (body_bytes, content_type_string)
-- [ ] Content-type includes the boundary string
-- [ ] Body contains --boundary before each field and --boundary-- at the end
-- [ ] Fields support string values: {"name": "John"} encodes name=John
-- [ ] Fields support file tuples: {"file": ("name.txt", b"content")} includes filename
-- [ ] Fields support file tuples with MIME type: {"file": ("name.txt", b"data", "text/plain")}
-- [ ] MIME type is guessed from filename (e.g., "image.jpg" → "image/jpeg")
-- [ ] Default MIME type is "application/octet-stream" for unknown extensions
-- [ ] Both dict and list-of-tuples input formats are supported
-- [ ] RequestField.render_headers() produces Content-Disposition with name and filename
-- [ ] Boundary is randomly generated when not provided
-- [ ] Custom boundary can be passed
-- [ ] Body bytes are properly CRLF-separated
+- [ ] make_headers(keep_alive=True) returns {"connection": "keep-alive"}
+- [ ] make_headers(accept_encoding=True) returns {"accept-encoding": "gzip,deflate[,br][,zstd]"}
+- [ ] make_headers(accept_encoding=["gzip", "br"]) returns {"accept-encoding": "gzip,br"}
+- [ ] make_headers(user_agent="Bot/1.0") returns {"user-agent": "Bot/1.0"}
+- [ ] make_headers(basic_auth="user:pass") returns {"authorization": "Basic dXNlcjpwYXNz"}
+- [ ] make_headers(proxy_basic_auth="user:pass") returns {"proxy-authorization": "Basic dXNlcjpwYXNz"}
+- [ ] make_headers(disable_cache=True) returns {"cache-control": "no-cache"}
+- [ ] body_to_chunks with bytes body returns chunks with correct content_length
+- [ ] body_to_chunks with None body returns None chunks
+- [ ] body_to_chunks with file-like body returns iterable chunks
+- [ ] RequestMethods mixin provides request(), get(), post(), put(), delete(), etc.
+- [ ] request() routes GET/HEAD/DELETE to URL-encoded fields
+- [ ] request() routes POST/PUT/PATCH to body-encoded fields
+- [ ] request() handles JSON encoding when json parameter provided
+- [ ] request_encode_body() uses multipart encoding by default
