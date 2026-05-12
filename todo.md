@@ -4,8 +4,8 @@
 Build the HTTP client library top-down, starting with the most important user-facing feature (making HTTP requests via a pool manager), then adding supporting features. Infrastructure like exceptions and utilities are created alongside the first feature that needs them. Each task delivers a complete, testable capability.
 
 ## Tasks
-- [>] Task 1: Implement URL parsing that breaks a URL string into components (scheme, auth, host, port, path, query, fragment) with proper normalization, IPv6 support, and URL reconstruction. Include error handling for invalid URLs.
-- [ ] Task 2: Implement timeout configuration that supports connect, read, and total timeouts with dynamic remaining-time calculation, duration tracking, and cloning for per-request use.
+- [x] Task 1: Implement URL parsing that breaks a URL string into components (scheme, auth, host, port, path, query, fragment) with proper normalization, IPv6 support, and URL reconstruction. Include error handling for invalid URLs.
+- [>] Task 2: Implement timeout configuration that supports connect, read, and total timeouts with dynamic remaining-time calculation, duration tracking, and cloning for per-request use.
 - [ ] Task 3: Implement retry logic that tracks retry counts per error type (connect, read, redirect, status), supports exponential backoff with configurable factor, maintains request history, and raises when retries are exhausted.
 - [ ] Task 4: Implement a case-insensitive HTTP header dictionary that stores multiple values per key, supports comma-joined retrieval, duplicate-aware iteration, merging with | operator, and deep copying.
 - [ ] Task 5: Implement an LRU container with a maximum size that evicts least-recently-used entries, calls a disposal callback on eviction, and is thread-safe.

@@ -18,3 +18,7 @@ class LocationParseError(LocationValueError):
         message = f"Failed to parse: {location!r}"
         super().__init__(message)
         self.location = location
+
+
+class TimeoutStateError(HTTPError):
+    pass
