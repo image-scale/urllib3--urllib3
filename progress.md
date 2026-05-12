@@ -13,3 +13,10 @@
 **Commit**: Add timeout configuration supporting connect, read, and total timeouts.
 **Acceptance**: 18/18 criteria met
 **Verification**: tests FAIL on previous state (patch doesn't apply), PASS on current state
+
+## Round 3
+**Task**: Task 3 — Retry logic with per-error-type counting, backoff, and history
+**Files created**: src/waterhttp/retry.py, tests/test_retry.py
+**Commit**: Add retry logic that tracks retry counts per error type.
+**Acceptance**: 21/21 criteria met
+**Verification**: tests FAIL on previous state (patch doesn't apply), PASS on current state
