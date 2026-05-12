@@ -62,3 +62,17 @@
 - [x] proxy_from_url() factory function
 - [x] Unknown scheme raises URLSchemeUnknown
 - [x] No host raises LocationValueError
+
+## Task 12: Top-Level Convenience API
+
+### Acceptance Criteria
+- [x] Module-level request() function using default PoolManager
+- [x] All major classes exported from package __init__
+- [x] connection_from_url() accessible at top level
+- [x] proxy_from_url() accessible at top level
+- [x] make_headers() accessible at top level
+- [x] encode_multipart_formdata() accessible at top level
+- [x] add_stderr_logger() for debug logging
+- [x] disable_warnings() for suppressing warnings
+- [x] __all__ contains all public names
+- [x] Exception classes exported
