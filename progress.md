@@ -20,3 +20,10 @@
 **Commit**: Add retry logic that tracks retry counts per error type.
 **Acceptance**: 21/21 criteria met
 **Verification**: tests FAIL on previous state (patch doesn't apply), PASS on current state
+
+## Round 4
+**Task**: Task 4+5 — HTTPHeaderDict and RecentlyUsedContainer
+**Files created**: src/waterhttp/datastructures.py, tests/test_datastructures.py
+**Commit**: Add case-insensitive HTTP header dict and LRU container.
+**Acceptance**: 24/24 criteria met
+**Verification**: tests FAIL on previous state (patch doesn't apply), PASS on current state

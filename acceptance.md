@@ -1,33 +1,20 @@
 # Acceptance Criteria
 
-## Task 1: URL Parsing (completed)
-## Task 2: Timeout Configuration (completed)
-## Task 3: Retry Logic (completed)
+## Tasks 1-5 (completed)
 
-## Task 4: HTTP Header Dictionary and LRU Container
+## Task 6: Multipart Form-Data Encoding
 
 ### Acceptance Criteria
-- [ ] HTTPHeaderDict stores headers case-insensitively: d["Content-Type"] == d["content-type"]
-- [ ] __setitem__ overwrites existing values for the same key (case-insensitive)
-- [ ] __getitem__ returns comma-joined values when multiple values exist
-- [ ] add(key, val) appends value without overwriting
-- [ ] add(key, val, combine=True) appends to last value with ", "
-- [ ] getlist(key) returns list of all values for a key
-- [ ] getlist returns empty list for missing key
-- [ ] iteritems() yields all (key, val) pairs including duplicates
-- [ ] itermerged() yields merged pairs with comma-separated values
-- [ ] copy() returns deep copy that is independent
-- [ ] __eq__ compares case-insensitively
-- [ ] extend() adds from dict, iterable of pairs, or another HTTPHeaderDict
-- [ ] __contains__ is case-insensitive
-- [ ] | operator merges two header dicts
-- [ ] |= operator extends in-place
-- [ ] __len__ returns number of unique keys
-- [ ] __iter__ yields original-cased key names
-- [ ] RecentlyUsedContainer evicts LRU item when maxsize exceeded
-- [ ] __getitem__ marks item as recently used
-- [ ] dispose_func called on eviction
-- [ ] clear() disposes all items
-- [ ] Thread-safe via locking
-- [ ] __iter__ raises NotImplementedError
-- [ ] keys() returns set of keys
+- [ ] encode_multipart_formdata({"key": "value"}) returns (body_bytes, content_type_string)
+- [ ] Content-type includes the boundary string
+- [ ] Body contains --boundary before each field and --boundary-- at the end
+- [ ] Fields support string values: {"name": "John"} encodes name=John
+- [ ] Fields support file tuples: {"file": ("name.txt", b"content")} includes filename
+- [ ] Fields support file tuples with MIME type: {"file": ("name.txt", b"data", "text/plain")}
+- [ ] MIME type is guessed from filename (e.g., "image.jpg" → "image/jpeg")
+- [ ] Default MIME type is "application/octet-stream" for unknown extensions
+- [ ] Both dict and list-of-tuples input formats are supported
+- [ ] RequestField.render_headers() produces Content-Disposition with name and filename
+- [ ] Boundary is randomly generated when not provided
+- [ ] Custom boundary can be passed
+- [ ] Body bytes are properly CRLF-separated
