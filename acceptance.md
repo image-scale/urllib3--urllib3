@@ -1,22 +1,20 @@
 # Acceptance Criteria
 
-## Tasks 1-6 (completed)
+## Tasks 1-7 (completed)
 
-## Task 7: Request Header Utilities and Request Methods Mixin
+## Task 8: HTTP/HTTPS Connection Classes
 
 ### Acceptance Criteria
-- [ ] make_headers(keep_alive=True) returns {"connection": "keep-alive"}
-- [ ] make_headers(accept_encoding=True) returns {"accept-encoding": "gzip,deflate[,br][,zstd]"}
-- [ ] make_headers(accept_encoding=["gzip", "br"]) returns {"accept-encoding": "gzip,br"}
-- [ ] make_headers(user_agent="Bot/1.0") returns {"user-agent": "Bot/1.0"}
-- [ ] make_headers(basic_auth="user:pass") returns {"authorization": "Basic dXNlcjpwYXNz"}
-- [ ] make_headers(proxy_basic_auth="user:pass") returns {"proxy-authorization": "Basic dXNlcjpwYXNz"}
-- [ ] make_headers(disable_cache=True) returns {"cache-control": "no-cache"}
-- [ ] body_to_chunks with bytes body returns chunks with correct content_length
-- [ ] body_to_chunks with None body returns None chunks
-- [ ] body_to_chunks with file-like body returns iterable chunks
-- [ ] RequestMethods mixin provides request(), get(), post(), put(), delete(), etc.
-- [ ] request() routes GET/HEAD/DELETE to URL-encoded fields
-- [ ] request() routes POST/PUT/PATCH to body-encoded fields
-- [ ] request() handles JSON encoding when json parameter provided
-- [ ] request_encode_body() uses multipart encoding by default
+- [ ] HTTPConnection wraps http.client.HTTPConnection with default port 80
+- [ ] HTTPSConnection extends HTTPConnection with default port 443 and SSL
+- [ ] Connections accept host, port, timeout, source_address, blocksize, socket_options
+- [ ] Default socket options include TCP_NODELAY
+- [ ] set_tunnel(host, port, headers, scheme) configures proxy tunneling
+- [ ] is_closed, is_connected properties report connection state
+- [ ] SSL context creation with configurable minimum/maximum TLS versions
+- [ ] Certificate verification enabled by default
+- [ ] assert_fingerprint verifies certificate SHA-256 fingerprint
+- [ ] create_ssl_context() produces a secure SSL context with safe defaults
+- [ ] port_by_scheme maps "http" to 80 and "https" to 443
+- [ ] is_connection_dropped() detects closed connections
+- [ ] Connection creates socket with given socket_options and timeout

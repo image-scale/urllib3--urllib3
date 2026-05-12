@@ -105,6 +105,10 @@ class NewConnectionError(ConnectTimeoutError):
         super().__init__(message)
 
 
+class NameResolutionError(NewConnectionError):
+    pass
+
+
 class InvalidHeader(HTTPError):
     pass
 
